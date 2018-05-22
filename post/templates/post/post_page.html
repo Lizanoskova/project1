@@ -1,0 +1,45 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+
+<h1>Страница поста {{post.pk}}</h1>
+
+{% endblock %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ post.title }}</h2>
+
+<h3> by {{ post.author }}</h3>
+
+<h3> Относится к категориям </h3>
+
+{% for category in post.categories.all%}
+
+<h3><div><a href="{% url "categories:current_category" pk=category.pk %}">{{ category.title }}</a></div></h3>
+
+{% endfor %}
+
+<h3><div><a href="{% url "posts:post_update" pk=category.pk %}">Редактировать пост</a></div></h3>
+
+
+<h3> Комментарии </h3>
+{% for comment in post.comments.all%}
+
+   <div>{{ comment.text }}</div>
+
+    {% endfor %}
+
+<h3> Оставьте комментарий </h3>
+ <form action="" method="post">
+     {{ form }}
+     {% csrf_token %}
+     <input type="submit" value="Save">
+ </form>
+
+
+{% endblock %}

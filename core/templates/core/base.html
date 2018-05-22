@@ -1,0 +1,28 @@
+{% block title %}
+  <h1>This is my site</h1>
+{% endblock %}
+
+{% block menu %}
+<h2>This is main menu</h2>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div><a href="{% url "categories:category_list"  %}">Список категорий</a></div>
+
+  <div><a href="{% url "blogs:blogview"  %}">Список блогов</a></div>
+
+  <div><a href="{% url "posts:post_creation"  %}">Создать пост</a></div>
+
+    <div><a href="{% url "logout"  %}">Сменить аккаунт</a></div>
+
+
+{% endblock %}
+
+
+
+<footer>
+    copyright
+</footer>

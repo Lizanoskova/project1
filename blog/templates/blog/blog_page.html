@@ -1,0 +1,19 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+    Страница постов блога {{ blog.id }}
+{% endblock %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% for post in blog.posts.all%}
+
+         <div><a href="{% url "posts:currentpost" pk=post.pk %}">{{ post.title }}</a></div>
+
+    {% endfor %}
+
+{% endblock%}
